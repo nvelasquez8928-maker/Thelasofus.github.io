@@ -1,368 +1,819 @@
 /* RESET BÁSICO Y VARIABLES */
+
 :root {
+
     --color-dark-green: #21261d;
+
     --color-text-light: #f0f0f0;
+
     --color-accent-green: #7d9633;
+
     --color-highlight-red: #a84f47;
+
     --color-highlight-yellow: #a89647;
+
     --font-title: 'Oswald', sans-serif;
+
     --font-body: 'Inter', sans-serif;
+
 }
+
+
 
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
+
 
 body {
+
     background-color: var(--color-dark-green);
+
     color: var(--color-text-light);
+
     font-family: var(--font-body);
+
     line-height: 1.6;
+
 }
+
+
 
 /* TIPOGRAFÍA GENERAL */
+
 h1, h2, h3 {
+
     font-family: var(--font-title);
+
     text-transform: uppercase;
+
 }
+
+
 
 h2.section-title {
+
     font-size: 2.5rem;
+
     text-align: center;
+
     padding: 20px 0;
+
     margin-bottom: 30px;
+
     letter-spacing: 2px;
+
 }
+
+
 
 /* BARRA DE NAVEGACIÓN */
+
 .navbar {
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     padding: 15px 30px;
+
     background-color: rgba(0, 0, 0, 0.5);
+
     position: fixed;
+
     width: 100%;
+
     top: 0;
+
     z-index: 1000;
+
 }
+
+
 
 .navbar .small-logo,
+
 .navbar .right-icon {
+
     height: 30px;
+
     filter: invert(1);
+
 }
+
+
 
 .navbar nav ul {
+
     list-style: none;
+
     display: flex;
+
     gap: 25px;
+
 }
+
+
 
 .navbar nav a {
+
     color: var(--color-text-light);
+
     text-decoration: none;
+
     font-weight: 600;
+
     font-size: 0.9rem;
+
     letter-spacing: 1px;
+
     transition: color 0.3s;
+
 }
+
+
 
 .navbar nav a:hover {
+
     color: var(--color-accent-green);
+
 }
+
+
 
 /* SECCIÓN HERO (PRINCIPAL) */
+
 .hero {
+
     background: url('img/hero-bg.jpg') no-repeat center center;
+
     background-size: cover;
-    height: 100vh; 
+
+    height: 100vh;
+
     display: flex;
-    align-items: flex-start; 
-    padding-top: 20vh; 
+
+    align-items: flex-start;
+
+    padding-top: 20vh;
+
     position: relative;
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8); 
+
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+
 }
+
+
 
 .hero-content {
+
     padding-left: 5%;
+
     max-width: 600px;
+
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+
 }
+
+
 
 .hero-content .welcome-text {
+
     font-size: 1.2rem;
+
     letter-spacing: 3px;
+
     margin-bottom: 10px;
+
 }
+
+
 
 .hero-content h1 {
+
     font-size: 5rem;
+
     line-height: 1;
+
     margin-bottom: 20px;
+
 }
+
+
 
 .hero-content .subtitle {
+
     font-size: 1.1rem;
+
     letter-spacing: 1px;
+
 }
+
+
 
 .tlou-logo-bottom {
+
     position: absolute;
+
     bottom: 20px;
+
     left: 50%;
+
     transform: translateX(-50%);
+
 }
 
+
+
 .tlou-logo-bottom img {
+
     height: 80px;
+
     filter: brightness(0.8);
+
 }
+
+
+
 
 
 /* SECCIÓN NOTICIAS */
+
 .news-section {
+
     padding: 50px 5%;
+
     background-color: #2b3027;
+
 }
+
+
 
 .news-container {
+
     display: grid;
+
     grid-template-columns: 2fr 1fr;
+
     gap: 20px;
+
     max-width: 1200px;
+
     margin: 0 auto;
+
 }
+
+
 
 .news-card {
+
     border-radius: 5px;
+
     overflow: hidden;
+
     display: flex;
+
     flex-direction: column;
+
     padding: 20px;
+
     transition: transform 0.3s ease;
+
 }
 
+
+
 .news-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+.highlight-card {
+
+    background-color: var(--color-highlight-red);
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+}
+
+
+
+.highlight-card .card-image img {
+
+    width: 200px;
+
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+    margin-right: 20px;
+
+}
+
+
+
+.highlight-card .card-text h3 {
+
+    font-size: 1.5rem;
+
+    margin-bottom: 15px;
+
+    line-height: 1.2;
+
+}
+
+
+
+.side-news {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+
+.small-card {
+
+    padding: 25px;
+
+    height: 100%;
+
+}
+
+
+
+.yellow-card {
+
+    background-color: var(--color-highlight-yellow);
+
+}
+
+
+
+.dark-card {
+
+    background-color: var(--color-dark-green);
+
+    border: 1px solid var(--color-accent-green);
+
+}
+
+
+
+.small-card h3 {
+
+    font-size: 1.2rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.small-card p {
+
+    font-size: 0.95rem;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.news-btn, .character-btn {
+
+    background-color: var(--color-dark-green);
+
+    color: var(--color-text-light);
+
+    border: none;
+
+    padding: 10px 15px;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+.yellow-card .news-btn {
+
+    background-color: var(--color-highlight-red);
+
+}
+
+
+
+.news-btn:hover {
+
+    background-color: var(--color-accent-green);
+
+}
+
+
+
+/* SECCIÓN PERSONAJES */
+
+.characters-section {
+
+    padding: 50px 5%;
+
+    text-align: center;
+
+    padding-bottom: 80px;
+
+}
+
+
+
+.characters-grid {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    gap: 30px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.character-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+
+.character-item:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+
+.character-item img {
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid var(--color-accent-green);
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.character-item p {
+
+    font-family: var(--font-title);
+
+    text-transform: uppercase;
+
+    font-size: 1.1rem;
+
+}
+
+
+
+.central-character img {
+
+    width: 250px;
+
+    height: 250px;
+
+    border-width: 5px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.central-character p {
+
+    font-size: 1.5rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.character-btn {
+
+    background-color: var(--color-accent-green);
+
+}
+
+
+
+.character-btn:hover {
+
+    background-color: #5c7426;
+
+}
+
+
+/* SECCIÓN TIENDA */
+.shop-section {
+    padding: 50px 5%;
+    text-align: center;
+    background-color: #2b3027; /* Mismo fondo que la sección de noticias para mantener el contraste */
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 columnas y adaptable */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+/* Código CSS a modificar */
+
+.product-card img {
+    width: 100%;
+    max-width: 200px; 
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    /* ESTA LÍNEA ES LA QUE PONE EL BORDE ROJO */
+    border: 2px solid var(--color-highlight-red); /* <<-- ELIMINAR O CAMBIAR */
+}
+
+.product-card:hover {
+    box-shadow: 0 0 20px rgba(125, 150, 51, 0.5); /* Sombra de color verde acento al pasar el mouse */
     transform: translateY(-5px);
 }
 
-.highlight-card {
-    background-color: var(--color-highlight-red);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.highlight-card .card-image img {
-    width: 200px;
-    height: 200px;
+.product-card img {
+    width: 100%;
+    max-width: 200px; /* Tamaño de imagen fijo para consistencia */
+    height: auto;
     object-fit: cover;
     border-radius: 5px;
-    margin-right: 20px;
-}
-
-.highlight-card .card-text h3 {
-    font-size: 1.5rem;
     margin-bottom: 15px;
-    line-height: 1.2;
+    border: 2px solid var(--color-highlight-red); /* Borde de color rojo acento */
 }
 
-.side-news {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.small-card {
-    padding: 25px;
-    height: 100%;
-}
-
-.yellow-card {
-    background-color: var(--color-highlight-yellow);
-}
-
-.dark-card {
-    background-color: var(--color-dark-green);
-    border: 1px solid var(--color-accent-green);
-}
-
-.small-card h3 {
-    font-size: 1.2rem;
+.product-card h3 {
+    font-size: 1.3rem;
     margin-bottom: 10px;
+    color: var(--color-accent-green);
 }
 
-.small-card p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+.product-card .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-highlight-yellow);
 }
 
-.news-btn, .character-btn {
-    background-color: var(--color-dark-green);
+.buy-btn {
+    background-color: var(--color-highlight-red); /* Color rojo para el botón de compra */
     color: var(--color-text-light);
     border: none;
-    padding: 10px 15px;
+    padding: 12px 25px;
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s;
     letter-spacing: 1px;
+    border-radius: 4px;
+    width: 100%;
 }
 
-.yellow-card .news-btn {
-    background-color: var(--color-highlight-red);
+.buy-btn:hover {
+    background-color: var(--color-accent-green); /* Cambia al color verde acento al pasar el mouse */
 }
 
-.news-btn:hover {
-    background-color: var(--color-accent-green);
-}
-
-/* SECCIÓN PERSONAJES */
-.characters-section {
-    padding: 50px 5%;
-    text-align: center;
-    padding-bottom: 80px; 
-}
-
-.characters-grid {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.character-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease;
-}
-
-.character-item:hover {
-    transform: scale(1.05);
-}
-
-.character-item img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--color-accent-green);
-    margin-bottom: 10px;
-}
-
-.character-item p {
-    font-family: var(--font-title);
-    text-transform: uppercase;
-    font-size: 1.1rem;
-}
-
-.central-character img {
-    width: 250px;
-    height: 250px;
-    border-width: 5px;
-    margin-bottom: 20px;
-}
-
-.central-character p {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.character-btn {
-    background-color: var(--color-accent-green);
-}
-
-.character-btn:hover {
-    background-color: #5c7426;
-}
 
 /* FOOTER */
+
 footer {
+
     text-align: center;
+
     padding: 30px 5%;
+
     background-color: var(--color-dark-green);
+
     border-top: 1px solid var(--color-accent-green);
+
 }
+
+
 
 .hbo-logo-text {
+
     font-family: var(--font-title);
+
     font-size: 2.2rem; /* Tamaño grande para el texto del logo */
+
     color: var(--color-text-light);
+
     margin-bottom: 15px;
+
     letter-spacing: 4px;
+
     line-height: 1;
+
 }
+
+
 
 .footer-links p {
+
     font-size: 0.8rem;
+
     color: #999;
+
     margin-bottom: 10px;
+
 }
+
+
 
 .copyright {
+
     font-size: 0.7rem;
+
     color: #666;
+
 }
 
+
+
 /* RESPONSIVE BÁSICO PARA MÓVILES */
+
 @media (max-width: 768px) {
+
     .navbar {
+
         padding: 10px 20px;
+
     }
+
     .navbar nav {
+
         display: none;
+
     }
+
+
 
     .hero {
+
         align-items: center;
+
         text-align: center;
+
         padding: 0;
+
         min-height: 70vh;
+
     }
+
     .hero-content {
+
         padding: 0 5%;
+
         max-width: 100%;
+
     }
+
     .hero-content h1 {
+
         font-size: 3rem;
+
     }
+
+
 
     .news-container {
+
         grid-template-columns: 1fr;
-    }
-    .highlight-card {
-        flex-direction: column;
-    }
-    .highlight-card .card-image img {
-        width: 100%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 15px;
+
     }
 
-    .characters-grid {
-        flex-wrap: wrap;
-        gap: 15px;
+    .highlight-card {
+
+        flex-direction: column;
+
     }
-    .character-item {
-        width: 30%;
-    }
-    .character-item img {
-        width: 80px;
-        height: 80px;
-    }
-    .central-character img {
-        width: 120px;
-        height: 120px;
-    }
-    .central-character {
-        order: -1;
+
+    .highlight-card .card-image img {
+
         width: 100%;
+
+        height: auto;
+
+        margin-right: 0;
+
+        margin-bottom: 15px;
+
     }
+
+
+
+    .characters-grid {
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+    }
+
+    .character-item {
+
+        width: 30%;
+
+    }
+
+    .character-item img {
+
+        width: 80px;
+
+        height: 80px;
+
+    }
+
+    .central-character img {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+    .central-character {
+
+        order: -1;
+
+        width: 100%;
+
+    }
+    
+    /* Adaptación de la Tienda para Móviles */
+    .products-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        gap: 20px;
+    }
+    .product-card img {
+        max-width: 150px; /* Imágenes más pequeñas en móvil */
+    }
+
 }
