@@ -1,221 +1,136 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>The Last of Us | Fan Site</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
-
     <link rel="icon" href="img/favicon.png" type="image/png">
-
 </head>
-
 <body>
 
-
-
     <header class="navbar">
-
         <div class="logo">
-
             <img src="img/logo-small.png" alt="Logo TLOU" class="small-logo">
-
         </div>
-
         <nav>
-
             <ul>
-
                 <li><a href="#inicio">INICIO</a></li>
-
                 <li><a href="#noticias">NOTICIAS</a></li>
-
                 <li><a href="#personajes">PERSONAJES</a></li>
                 <li><a href="#tienda">TIENDA</a></li>
-
                 <li><a href="#oficial">OFICIAL</a></li>
-
                 <li><a href="#faq">FAQ</a></li>
-
             </ul>
-
         </nav>
-
         <div class="icon-right">
-
              <img src="img/icon-right.png" alt="Icono" class="right-icon">
-
         </div>
-
     </header>
 
-
-
     <section class="hero" id="inicio">
-
         <div class="hero-content">
-
             <p class="welcome-text">WELCOME: YOU ARE</p>
-
             <h1>THE LAST OF US</h1>
-
             <p class="subtitle">ESTRENA SU SEGUNDA TEMPORADA. NO TE LO PUEDES PERDER...</p>
-
             <div class="tlou-logo-bottom">
-
                 <img src="img/logo-small.png" alt="Logo TLOU grande">
-
             </div>
-
         </div>
-
     </section>
-
-
 
     <section class="news-section" id="noticias">
-
         <h2 class="section-title">NOTICIAS</h2>
-
         <div class="news-container">
-
             <article class="news-card highlight-card">
-
                 <div class="card-image">
-
                     <img src="img/news-actor.jpg" alt="Imagen de Noticia Destacada">
-
                 </div>
-
                 <div class="card-text">
-
                     <h3>Director de The Last of Us habla sobre el proceso de adaptar el juego en la serie</h3>
-
                     <button class="news-btn">Leer más</button>
-
                 </div>
-
             </article>
 
-
-
             <div class="side-news">
-
                 <article class="news-card small-card yellow-card">
-
                     <h3>The last of us 2 tráiler y fecha de estreno</h3>
-
                     <p>Mientras se espera por la segunda temporada, HBO Max reveló su primer teaser para los fans...</p>
-
                     <button class="news-btn">Leer más</button>
-
                 </article>
-
                 <article class="news-card small-card dark-card">
-
                     <h3>The last of us 2</h3>
-
                     <p>Estas son las primeras imágenes de la exitosa serie con sus protagonistas. ¿Ya conoces las nuevas caras...</p>
-
                     <button class="news-btn">Leer más</button>
-
                 </article>
-
             </div>
-
         </div>
-
     </section>
 
-
-
     <section class="characters-section" id="personajes">
-
         <h2 class="section-title">PERSONAJES</h2>
-
         <div class="characters-grid">
 
             <div class="character-item">
-
                 <img src="img/char-bill.jpg" alt="Bill">
-
                 <p>Bill</p>
-
+                <button class="character-btn-desc" data-character-id="bill" onclick="openCharacterModalById(this.getAttribute('data-character-id'))">VER DESCRIPCIÓN</button>
             </div>
 
             <div class="character-item">
-
                 <img src="img/char-joel.jpg" alt="Joel Miller">
-
                 <p>Joel Miller</p>
-
+                <button class="character-btn-desc" data-character-id="joel" onclick="openCharacterModalById(this.getAttribute('data-character-id'))">VER DESCRIPCIÓN</button>
             </div>
 
             <div class="character-item central-character">
-
                 <img src="img/char-ellie.jpg" alt="Ellie Williams">
-
                 <p>Ellie Williams</p>
-
-                <button class="character-btn">VER EPISODIOS</button>
-
+                <button class="character-btn-desc" data-character-id="ellie" onclick="openCharacterModalById(this.getAttribute('data-character-id'))">VER DESCRIPCIÓN</button>
             </div>
 
             <div class="character-item">
-
                 <img src="img/char-tess.jpg" alt="Tess Servopoulos">
-
                 <p>Tess Servopoulos</p>
-
+                <button class="character-btn-desc" data-character-id="tess" onclick="openCharacterModalById(this.getAttribute('data-character-id'))">VER DESCRIPCIÓN</button>
             </div>
 
             <div class="character-item">
-
                 <img src="img/char-tommy.jpg" alt="Tommy">
-
                 <p>Tommy</p>
-
+                <button class="character-btn-desc" data-character-id="tommy" onclick="openCharacterModalById(this.getAttribute('data-character-id'))">VER DESCRIPCIÓN</button>
             </div>
 
         </div>
-
     </section>
-
     
     <section class="shop-section" id="tienda">
         <h2 class="section-title">TIENDA OFICIAL</h2>
         <div class="products-grid">
 
-            <div class="product-card">
+            <div class="product-card" onclick="openModal('Collar de Luciérnagas', 'img/producto-collar.jpg', '$29.99', 'El colgante oficial de los Firefly (Luciérnagas). Fabricado en aleación de metal resistente, es el símbolo de esperanza en el apocalipsis. Cuando estás perdido en la oscuridad, busca la luz.', false)">
                 <img src="img/producto-collar.jpg" alt="Collar de The Last of Us">
                 <h3>Collar de Luciérnagas</h3>
                 <p class="price">$29.99</p>
                 <button class="buy-btn">Comprar Ahora</button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" onclick="openModal('Mochila de Viaje', 'img/producto-mochila.jpg', '$49.99', 'Mochila táctica de 20 litros, ideal para supervivencia o uso diario. Material resistente al agua con compartimento especial para suministros médicos.', false)">
                 <img src="img/producto-mochila.jpg" alt="Mochila de The Last of Us">
                 <h3>Mochila de Viaje</h3>
                 <p class="price">$49.99</p>
                 <button class="buy-btn">Comprar Ahora</button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" onclick="openModal('Gorra Logo TLOU', 'img/producto-gorra.jpg', '$19.99', 'Gorra negra clásica con el logo bordado de The Last of Us en el frente. Talla única y ajustable. Perfecta para pasar desapercibido entre los infectados.', true)">
                 <img src="img/producto-gorra.jpg" alt="Gorra con logo">
                 <h3>Gorra Logo TLOU</h3>
                 <p class="price">$19.99</p>
                 <button class="buy-btn">Comprar Ahora</button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" onclick="openModal('Camiseta Firefly', 'img/producto-camiseta.jpg', '$24.99', 'Camiseta de algodón premium con el diseño exclusivo del arte de la temporada 1 en la espalda (similar a la imagen de ejemplo). Disponible en negro, gris y blanco.', true)">
                 <img src="img/producto-camiseta.jpg" alt="Camiseta de The Last of Us">
                 <h3>Camiseta Firefly</h3>
                 <p class="price">$24.99</p>
@@ -225,26 +140,233 @@
         </div>
     </section>
     <footer>
-
         <div class="footer-logo">
-
             <h3 class="hbo-logo-text">HBO MAX</h3>
-
         </div>
-
         <div class="footer-links">
-
             <p>Privacy Policy | Terms of Use | Ad Choices | Do Not Sell My Personal Information</p>
-
         </div>
-
         <p class="copyright">© 2024 HBO. All Rights Reserved.</p>
-
     </footer>
 
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="product-details-container">
+                
+                <div class="product-images">
+                    <img id="modal-main-image" src="" alt="Imagen">
+                </div>
+
+                <div class="product-info">
+                    <h2 id="modal-title">Nombre del Artículo</h2>
+                    <div class="price-tag" id="modal-price">$XX.XX</div>
+                    
+                    <h3 class="details-title">Detalles del producto</h3>
+                    <p id="modal-description"></p>
+                    
+                    <div class="options-group">
+                        <div class="option-row" id="modal-talla-row">
+                            <span class="option-label">Talla</span>
+                            <select class="product-option" id="modal-size">
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                            </select>
+                        </div>
+                        <div class="option-row" id="modal-color-row">
+                            <span class="option-label">Color</span>
+                            <div class="color-options">
+                                <span class="color-circle black selected"></span>
+                                <span class="color-circle gray"></span>
+                                <span class="color-circle white"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quantity-buy-group">
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus">-</button>
+                            <input type="number" value="1" min="1" id="quantity-input" class="quantity-input" readonly>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="modal-buy-btn">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="related-characters">
+                <h3 id="related-title">VER DESCRIPCIÓN DE OTROS PERSONAJES</h3>
+                <div class="related-list" id="related-list-container">
+                    </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        // Definición de todos los datos de personajes (centralizada y detallada)
+        const characterData = [
+            // BILL
+            { 
+                id: 'bill', 
+                name: 'Bill', 
+                imageSrc: 'img/char-bill.jpg', 
+                description: "Un sobreviviente paranoico y ermitaño que vive en Lincoln, Massachusetts. Creó su propio puesto avanzado fortificado con trampas para mantenerse alejado de los infectados y otros humanos. Su refugio es una fortaleza de autosuficiencia y paranoia.<br><br><strong>Personalidad</strong><br>Extremadamente cínico, desconfiado de la gente y obsesionado con la supervivencia y la seguridad. Es ingenioso y un experto en trampas.<br><br><strong>Estado</strong><br>Desconocido (Vivo al final de su segmento en la trama principal).<br><br><strong>Parientes</strong><ul><li>Frank (Pareja, Fallecido †)</li></ul>" 
+            },
+            
+            // JOEL MILLER (Mantenido el formato detallado)
+            { 
+                id: 'joel', 
+                name: 'Joel Miller', 
+                imageSrc: 'img/char-joel.jpg', 
+                description: "Joel era un sobreviviente en una América postapocalíptica que había sido devastada por la infección cerebral de los Cordyceps. Después de perder a su única hija Sarah en las primeras etapas del brote, Joel se convirtió en un contrabandista despiadado y cínico finalmente encargado de contrabandear y proteger a Ellie Williams.<br><br><strong>Personalidad</strong><br>Antes del apocalipsis, Joel era un padre cariñoso. Tras la pérdida, se volvió melancólico, apático y despiadado, siendo descrito como un &quot;matón violento, un asesino brutal y un torturador&quot;.<br><br><strong>Estado</strong><br>Fallecido †<br><br><strong>Parientes</strong><ul><li>Tommy Miller (hermano menor)</li><li>María Miller (cuñada)</li><li>Ex Esposa anónima</li><li>Sarah Miller (hija)</li><li>Ellie Williams (hija sustituta)</li></ul>" 
+            },
+            
+            // ELLIE WILLIAMS
+            { 
+                id: 'ellie', 
+                name: 'Ellie Williams', 
+                imageSrc: 'img/char-ellie.jpg', 
+                description: "Una joven de 14 años que es notablemente inmune a la infección por Cordyceps, a pesar de haber sido mordida. Su inmunidad la convierte en la clave potencial para una cura y es el centro de la misión de Joel.<br><br><strong>Personalidad</strong><br>Impulsiva, resiliente, con un fuerte sentido del humor que usa para ocultar su trauma. Es ferozmente leal y muestra una profunda necesidad de venganza.<br><br><strong>Estado</strong><br>Viva.<br><br><strong>Parientes</strong><ul><li>Joel Miller (Figura paterna/padre sustituto, Fallecido †)</li><li>Riley Abel (Mejor amiga, Fallecida †)</li></ul>" 
+            },
+            
+            // TESS SERVOPOULOS
+            { 
+                id: 'tess', 
+                name: 'Tess Servopoulos', 
+                imageSrc: 'img/char-tess.jpg', 
+                description: "La compañera contrabandista de Joel en la Zona de Cuarentena de Boston. Es pragmática, inteligente y vital en la decisión inicial de escoltar a Ellie, creyendo firmemente en la posibilidad de una cura.<br><br><strong>Personalidad</strong><br>Dura, experimentada y orientada a la misión. Es más idealista que Joel y está dispuesta a hacer sacrificios extremos por el bien de la humanidad.<br><br><strong>Estado</strong><br>Fallecida † (Inmolación para detener a los infectados y asegurar la misión de Ellie).<br><br><strong>Parientes</strong><br>No se conocen." 
+            },
+            
+            // TOMMY MILLER
+            { 
+                id: 'tommy', 
+                name: 'Tommy Miller', 
+                imageSrc: 'img/char-tommy.jpg', 
+                description: "El hermano menor de Joel y un exmiembro de la milicia Luciérnagas. Después de dejar las Luciérnagas, se estableció en un asentamiento comunitario autosuficiente en Jackson, Wyoming.<br><br><strong>Personalidad</strong><br>Más idealista y esperanzado que Joel. Es un líder en su comunidad y a menudo es el ancla moral para su hermano.<br><br><strong>Estado</strong><br>Vivo.<br><br><strong>Parientes</strong><ul><li>Joel Miller (Hermano mayor, Fallecido †)</li><li>María Miller (Esposa)</li></ul>" 
+            }
+        ];
+
+        // Obtener la modal y elementos
+        var modal = document.getElementById("productModal");
+        var span = document.getElementsByClassName("close-btn")[0];
+        
+        // Elementos de la modal de producto que se controlarán
+        var productElements = document.querySelectorAll('#modal-price, #modal-talla-row, #modal-color-row, .quantity-buy-group, .details-title');
+        var relatedCharactersSection = document.getElementById("related-characters");
+
+        // Función auxiliar para obtener el objeto de personaje por ID
+        function getCharacterDataById(id) {
+            return characterData.find(char => char.id === id);
+        }
+
+        // FUNCIÓN QUE LLAMAN LOS BOTONES DEL HTML (Usa la ID para buscar los datos)
+        function openCharacterModalById(characterId) {
+            const character = getCharacterDataById(characterId);
+            if (character) {
+                openCharacterModal(character);
+            } else {
+                console.error("Personaje no encontrado con ID:", characterId);
+            }
+        }
+
+        // Función para abrir la modal para PRODUCTOS
+        function openModal(title, imageSrc, price, description, requiresSize) {
+            document.getElementById("modal-title").textContent = title;
+            document.getElementById("modal-main-image").src = imageSrc;
+            document.getElementById("modal-price").textContent = price;
+            document.getElementById("modal-description").textContent = description; 
+            
+            // Mostrar elementos específicos del PRODUCTO
+            productElements.forEach(el => el.style.display = (el.id === 'modal-talla-row' && !requiresSize) ? 'none' : (el.id === 'modal-price' ? 'inline-block' : 'flex'));
+            document.querySelector('.details-title').style.display = 'block'; 
+            
+            // Ocultar sección de personajes relacionados
+            relatedCharactersSection.style.display = 'none';
+
+            // Restablecer cantidad a 1 al abrir
+            document.getElementById("quantity-input").value = 1;
+            modal.style.display = "block";
+        }
+        
+        // FUNCIÓN para generar las miniaturas de otros personajes
+        function generateRelatedCharacters(currentId) {
+            const container = document.getElementById('related-list-container');
+            container.innerHTML = ''; 
+
+            const related = characterData.filter(char => char.id !== currentId);
+            
+            related.forEach(char => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'related-char-thumb';
+                thumbnail.setAttribute('data-id', char.id);
+                thumbnail.innerHTML = `<img src="${char.imageSrc}" alt="${char.name}" class="related-char-image">
+                                       <span class="related-char-name">${char.name.split(' ')[0]}</span>`;
+                
+                // Clic para cambiar al nuevo personaje. 
+                thumbnail.onclick = () => openCharacterModalById(char.id); 
+                
+                container.appendChild(thumbnail);
+            });
+        }
+
+
+        // FUNCIÓN CORE para poblar la modal con descripción de PERSONAJES
+        function openCharacterModal(character) {
+            document.getElementById("modal-title").textContent = character.name;
+            document.getElementById("modal-main-image").src = character.imageSrc;
+            // USAMOS innerHTML para inyectar el texto con formato (<strong>, <ul>)
+            document.getElementById("modal-description").innerHTML = character.description; 
+            
+            // Ocultar elementos específicos del PRODUCTO
+            productElements.forEach(el => el.style.display = 'none');
+            
+            // Mostrar y poblar sección de personajes relacionados
+            relatedCharactersSection.style.display = 'block';
+            generateRelatedCharacters(character.id);
+
+            // Mostrar la modal
+            modal.style.display = "block";
+        }
+
+
+        // Función para cerrar la modal al hacer clic en (x)
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Función para cerrar la modal al hacer clic fuera
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // --- Lógica de la Cantidad (Solo afecta al modo Producto) ---
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const quantityInput = document.getElementById('quantity-input');
+            const minusButton = document.querySelector('.qty-btn.minus');
+            const plusButton = document.querySelector('.qty-btn.plus');
+
+            // Solo si los elementos existen (para evitar errores si no estamos en la modal)
+            if (minusButton && plusButton && quantityInput) {
+                 minusButton.addEventListener('click', () => {
+                    let currentValue = parseInt(quantityInput.value);
+                    if (currentValue > 1) {
+                        quantityInput.value = currentValue - 1;
+                    }
+                });
+
+                plusButton.addEventListener('click', () => {
+                    let currentValue = parseInt(quantityInput.value);
+                    quantityInput.value = currentValue + 1;
+                });
+            }
+        });
+    </script>
 
 
 </body>
-
 </html>
 
