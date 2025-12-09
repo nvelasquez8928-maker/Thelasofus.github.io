@@ -1,567 +1,320 @@
 /* RESET BÁSICO Y VARIABLES */
-
 :root {
-
     --color-dark-green: #21261d;
-
     --color-text-light: #f0f0f0;
-
     --color-accent-green: #7d9633;
-
     --color-highlight-red: #a84f47;
-
     --color-highlight-yellow: #a89647;
-
     --font-title: 'Oswald', sans-serif;
-
     --font-body: 'Inter', sans-serif;
-
 }
-
-
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
 
-
-
+/* --- CORRECCIÓN DE SCROLL DOBLE --- */
 body {
-
     background-color: var(--color-dark-green);
-
     color: var(--color-text-light);
-
     font-family: var(--font-body);
-
     line-height: 1.6;
-
+    overflow-x: hidden; 
 }
-
-
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Permitimos el scroll solo dentro de la modal si el contenido es grande */
+    background-color: rgba(0, 0, 0, 0.9); 
+}
 
 /* TIPOGRAFÍA GENERAL */
-
 h1, h2, h3 {
-
     font-family: var(--font-title);
-
     text-transform: uppercase;
-
 }
-
-
 
 h2.section-title {
-
     font-size: 2.5rem;
-
     text-align: center;
-
     padding: 20px 0;
-
     margin-bottom: 30px;
-
     letter-spacing: 2px;
-
 }
-
-
 
 /* BARRA DE NAVEGACIÓN */
-
 .navbar {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     padding: 15px 30px;
-
     background-color: rgba(0, 0, 0, 0.5);
-
     position: fixed;
-
     width: 100%;
-
     top: 0;
-
     z-index: 1000;
-
 }
-
-
 
 .navbar .small-logo,
-
 .navbar .right-icon {
-
     height: 30px;
-
     filter: invert(1);
-
 }
-
-
 
 .navbar nav ul {
-
     list-style: none;
-
     display: flex;
-
     gap: 25px;
-
 }
-
-
 
 .navbar nav a {
-
     color: var(--color-text-light);
-
     text-decoration: none;
-
     font-weight: 600;
-
     font-size: 0.9rem;
-
     letter-spacing: 1px;
-
     transition: color 0.3s;
-
 }
-
-
 
 .navbar nav a:hover {
-
     color: var(--color-accent-green);
-
 }
-
-
 
 /* SECCIÓN HERO (PRINCIPAL) */
-
 .hero {
-
     background: url('img/hero-bg.jpg') no-repeat center center;
-
     background-size: cover;
-
     height: 100vh;
-
     display: flex;
-
     align-items: flex-start;
-
     padding-top: 20vh;
-
     position: relative;
-
     box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
-
 }
-
-
 
 .hero-content {
-
     padding-left: 5%;
-
     max-width: 600px;
-
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-
 }
-
-
 
 .hero-content .welcome-text {
-
     font-size: 1.2rem;
-
     letter-spacing: 3px;
-
     margin-bottom: 10px;
-
 }
-
-
 
 .hero-content h1 {
-
     font-size: 5rem;
-
     line-height: 1;
-
     margin-bottom: 20px;
-
 }
-
-
 
 .hero-content .subtitle {
-
     font-size: 1.1rem;
-
     letter-spacing: 1px;
-
 }
-
-
 
 .tlou-logo-bottom {
-
     position: absolute;
-
     bottom: 20px;
-
     left: 50%;
-
     transform: translateX(-50%);
-
 }
-
-
 
 .tlou-logo-bottom img {
-
     height: 80px;
-
     filter: brightness(0.8);
-
 }
-
-
-
 
 
 /* SECCIÓN NOTICIAS */
-
 .news-section {
-
     padding: 50px 5%;
-
     background-color: #2b3027;
-
 }
-
-
 
 .news-container {
-
     display: grid;
-
     grid-template-columns: 2fr 1fr;
-
     gap: 20px;
-
     max-width: 1200px;
-
     margin: 0 auto;
-
 }
-
-
 
 .news-card {
-
     border-radius: 5px;
-
     overflow: hidden;
-
     display: flex;
-
     flex-direction: column;
-
     padding: 20px;
-
     transition: transform 0.3s ease;
-
 }
-
-
 
 .news-card:hover {
-
     transform: translateY(-5px);
-
 }
-
-
 
 .highlight-card {
-
     background-color: var(--color-highlight-red);
-
     display: flex;
-
     flex-direction: row;
-
     align-items: center;
-
 }
-
-
 
 .highlight-card .card-image img {
-
     width: 200px;
-
     height: 200px;
-
     object-fit: cover;
-
     border-radius: 5px;
-
     margin-right: 20px;
-
 }
-
-
 
 .highlight-card .card-text h3 {
-
     font-size: 1.5rem;
-
     margin-bottom: 15px;
-
     line-height: 1.2;
-
 }
-
-
 
 .side-news {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 20px;
-
 }
-
-
 
 .small-card {
-
     padding: 25px;
-
     height: 100%;
-
 }
-
-
 
 .yellow-card {
-
     background-color: var(--color-highlight-yellow);
-
 }
-
-
 
 .dark-card {
-
     background-color: var(--color-dark-green);
-
     border: 1px solid var(--color-accent-green);
-
 }
-
-
 
 .small-card h3 {
-
     font-size: 1.2rem;
-
     margin-bottom: 10px;
-
 }
-
-
 
 .small-card p {
-
     font-size: 0.95rem;
-
     margin-bottom: 15px;
-
 }
 
-
-
-.news-btn, .character-btn {
-
+.news-btn, .character-btn-desc { 
     background-color: var(--color-dark-green);
-
     color: var(--color-text-light);
-
     border: none;
-
     padding: 10px 15px;
-
     text-transform: uppercase;
-
     font-weight: 700;
-
     cursor: pointer;
-
     transition: background-color 0.3s;
-
     letter-spacing: 1px;
-
 }
-
-
 
 .yellow-card .news-btn {
-
     background-color: var(--color-highlight-red);
-
 }
-
-
 
 .news-btn:hover {
-
     background-color: var(--color-accent-green);
-
 }
-
-
 
 /* SECCIÓN PERSONAJES */
-
 .characters-section {
-
     padding: 50px 5%;
-
     text-align: center;
-
     padding-bottom: 80px;
-
 }
-
-
 
 .characters-grid {
-
     display: flex;
-
     justify-content: center;
-
     align-items: flex-end;
-
     gap: 30px;
-
     max-width: 1200px;
-
     margin: 0 auto;
-
 }
-
-
 
 .character-item {
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     transition: transform 0.3s ease;
-
+    position: relative; 
+    cursor: pointer;
 }
-
-
 
 .character-item:hover {
-
     transform: scale(1.05);
-
 }
-
-
 
 .character-item img {
-
     width: 150px;
-
     height: 150px;
-
     border-radius: 50%;
-
     object-fit: cover;
-
     border: 3px solid var(--color-accent-green);
-
     margin-bottom: 10px;
-
 }
-
-
 
 .character-item p {
-
     font-family: var(--font-title);
-
     text-transform: uppercase;
-
     font-size: 1.1rem;
-
 }
-
-
 
 .central-character img {
-
     width: 250px;
-
     height: 250px;
-
     border-width: 5px;
-
     margin-bottom: 20px;
-
 }
-
-
 
 .central-character p {
-
     font-size: 1.5rem;
-
     margin-bottom: 10px;
-
 }
 
-
-
-.character-btn {
-
-    background-color: var(--color-accent-green);
-
+/* ESTILOS DEL BOTÓN DE DESCRIPCIÓN */
+.character-btn-desc {
+    position: absolute;
+    bottom: 50px; 
+    width: 80%;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    background-color: rgba(168, 79, 71, 0.9); 
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 0.8rem;
+    pointer-events: none; 
 }
 
+.central-character .character-btn-desc {
+    bottom: 60px; 
+}
 
+/* Mostrar el botón al hacer hover sobre el contenedor del personaje */
+.character-item:hover .character-btn-desc {
+    opacity: 1;
+    pointer-events: auto; 
+}
 
-.character-btn:hover {
-
-    background-color: #5c7426;
-
+.character-btn-desc:hover {
+    background-color: var(--color-highlight-red); 
 }
 
 
@@ -569,19 +322,34 @@ h2.section-title {
 .shop-section {
     padding: 50px 5%;
     text-align: center;
-    background-color: #2b3027; /* Mismo fondo que la sección de noticias para mantener el contraste */
+    background-color: #2b3027; 
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 columnas y adaptable */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 20px;
 }
 
-/* Código CSS a modificar */
+.product-card {
+    background-color: var(--color-dark-green); 
+    border: 1px solid var(--color-accent-green);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    box-shadow: 0 0 20px rgba(125, 150, 51, 0.5); 
+    transform: translateY(-5px);
+}
 
 .product-card img {
     width: 100%;
@@ -590,23 +358,6 @@ h2.section-title {
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 15px;
-    /* ESTA LÍNEA ES LA QUE PONE EL BORDE ROJO */
-    border: 2px solid var(--color-highlight-red); /* <<-- ELIMINAR O CAMBIAR */
-}
-
-.product-card:hover {
-    box-shadow: 0 0 20px rgba(125, 150, 51, 0.5); /* Sombra de color verde acento al pasar el mouse */
-    transform: translateY(-5px);
-}
-
-.product-card img {
-    width: 100%;
-    max-width: 200px; /* Tamaño de imagen fijo para consistencia */
-    height: auto;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    border: 2px solid var(--color-highlight-red); /* Borde de color rojo acento */
 }
 
 .product-card h3 {
@@ -623,7 +374,7 @@ h2.section-title {
 }
 
 .buy-btn {
-    background-color: var(--color-highlight-red); /* Color rojo para el botón de compra */
+    background-color: var(--color-highlight-red); 
     color: var(--color-text-light);
     border: none;
     padding: 12px 25px;
@@ -637,183 +388,442 @@ h2.section-title {
 }
 
 .buy-btn:hover {
-    background-color: var(--color-accent-green); /* Cambia al color verde acento al pasar el mouse */
+    background-color: var(--color-accent-green); 
+}
+
+
+/* --- ESTILOS PARA LA VENTANA MODAL --- */
+
+.modal-content {
+    background-color: var(--color-dark-green);
+    margin: 5% auto; 
+    padding: 30px;
+    border: 3px solid var(--color-accent-green);
+    width: 90%; 
+    max-width: 1000px; 
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.close-btn {
+    color: var(--color-highlight-red);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+
+/* * FIX: Permitir que las columnas tengan alturas independientes (align-items: flex-start)
+ * y la columna de descripción (.product-info) se comprima si los elementos del producto están ocultos.
+ */
+.product-details-container {
+    display: flex;
+    gap: 30px;
+    padding-top: 10px;
+    align-items: flex-start; /* Alinea los ítems arriba para evitar el espacio vacío debajo de la imagen */
+}
+
+.product-images {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal-main-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-info {
+    flex: 1; 
+    text-align: left;
+    padding-left: 20px;
+    /* FIX: Cambiar flex-basis a auto para que se encoja correctamente */
+    min-height: 0; /* Necesario en algunos navegadores para que flexbox funcione correctamente con min-content */
+}
+
+.product-info h2 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    color: var(--color-accent-green);
+}
+
+.details-title {
+    font-size: 1.3rem;
+    color: var(--color-highlight-red);
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+/* Estilos de formato para el texto largo del personaje */
+#modal-description {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.5;
+    /* FIX: Reducir el margen inferior para pegar más el texto al final de la columna */
+    margin-bottom: 0;
+}
+
+#modal-description strong {
+    display: block; 
+    font-size: 1.1rem;
+    color: var(--color-highlight-yellow);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+#modal-description ul {
+    list-style-type: none; 
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+#modal-description ul li {
+    margin-bottom: 3px;
+    padding-left: 15px;
+    position: relative;
+}
+
+#modal-description ul li:before {
+    content: "•"; 
+    color: var(--color-accent-green);
+    position: absolute;
+    left: 0;
+}
+
+
+/* --- SECCIÓN: PERSONAJES RELACIONADOS --- */
+#related-characters {
+    display: block; 
+    border-top: 1px solid rgba(125, 150, 51, 0.3);
+    /* FIX: Reducir margen superior para que se pegue al texto de la descripción */
+    margin-top: 20px; 
+    padding-top: 20px;
+    text-align: center;
+}
+
+#related-title {
+    font-size: 1.1rem;
+    color: var(--color-accent-green);
+    margin-bottom: 15px;
+}
+
+.related-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.related-char-thumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.related-char-thumb:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.related-char-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Forma circular */
+    object-fit: cover;
+    border: 2px solid var(--color-highlight-red);
+    margin-bottom: 5px;
+}
+
+.related-char-name {
+    font-size: 0.8rem;
+    color: #ccc;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/* Estilo del precio grande */
+.price-tag {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-highlight-yellow);
+    margin-bottom: 20px;
+    display: inline-block;
+    background-color: var(--color-highlight-red);
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+
+/* Opciones de Producto (Talla, Color, Cantidad) */
+.options-group {
+    margin: 20px 0;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.option-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    width: 80px; 
+}
+
+.product-option {
+    padding: 8px 10px;
+    background-color: #333;
+    color: var(--color-text-light);
+    border: 1px solid var(--color-accent-green);
+    border-radius: 4px;
+    font-family: var(--font-body);
+}
+
+.color-options {
+    display: flex;
+    gap: 10px;
+}
+
+.color-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.color-circle.black { background-color: #000; }
+.color-circle.gray { background-color: #777; }
+.color-circle.white { background-color: #fff; border: 1px solid #333; } 
+
+.color-circle.selected {
+    border-color: var(--color-highlight-red);
+    box-shadow: 0 0 5px var(--color-highlight-red);
+}
+
+/* Controles de Cantidad y Botón de Compra */
+.quantity-buy-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.quantity-controls {
+    display: flex;
+    width: 200px;
+    border: 1px solid var(--color-accent-green);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    background-color: var(--color-dark-green);
+    color: var(--color-text-light);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.qty-btn:hover {
+    background-color: var(--color-highlight-red);
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    border: none;
+    background-color: #2b3027;
+    color: var(--color-text-light);
+    font-size: 1rem;
+    padding: 10px 0;
+}
+
+.modal-buy-btn {
+    background-color: var(--color-highlight-yellow); 
+    color: var(--color-dark-green); 
+    border: none;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+
+.modal-buy-btn:hover {
+    background-color: #d1b44b; 
 }
 
 
 /* FOOTER */
-
 footer {
-
     text-align: center;
-
     padding: 30px 5%;
-
     background-color: var(--color-dark-green);
-
     border-top: 1px solid var(--color-accent-green);
-
 }
-
-
 
 .hbo-logo-text {
-
     font-family: var(--font-title);
-
-    font-size: 2.2rem; /* Tamaño grande para el texto del logo */
-
+    font-size: 2.2rem; 
     color: var(--color-text-light);
-
     margin-bottom: 15px;
-
     letter-spacing: 4px;
-
     line-height: 1;
-
 }
-
-
 
 .footer-links p {
-
     font-size: 0.8rem;
-
     color: #999;
-
     margin-bottom: 10px;
-
 }
-
-
 
 .copyright {
-
     font-size: 0.7rem;
-
     color: #666;
-
 }
-
 
 
 /* RESPONSIVE BÁSICO PARA MÓVILES */
-
 @media (max-width: 768px) {
-
     .navbar {
-
         padding: 10px 20px;
-
     }
-
     .navbar nav {
-
         display: none;
-
     }
-
-
 
     .hero {
-
         align-items: center;
-
         text-align: center;
-
         padding: 0;
-
         min-height: 70vh;
-
     }
-
     .hero-content {
-
         padding: 0 5%;
-
         max-width: 100%;
-
     }
-
     .hero-content h1 {
-
         font-size: 3rem;
-
     }
-
-
 
     .news-container {
-
         grid-template-columns: 1fr;
-
     }
-
     .highlight-card {
-
         flex-direction: column;
-
     }
-
     .highlight-card .card-image img {
-
         width: 100%;
-
         height: auto;
-
         margin-right: 0;
-
         margin-bottom: 15px;
-
     }
-
-
 
     .characters-grid {
-
         flex-wrap: wrap;
-
         gap: 15px;
-
     }
-
     .character-item {
-
         width: 30%;
-
     }
-
     .character-item img {
-
         width: 80px;
-
         height: 80px;
-
     }
-
     .central-character img {
-
         width: 120px;
-
         height: 120px;
-
     }
-
     .central-character {
-
         order: -1;
-
         width: 100%;
-
     }
     
     /* Adaptación de la Tienda para Móviles */
     .products-grid {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        grid-template-columns: 1fr; 
         gap: 20px;
     }
     .product-card img {
-        max-width: 150px; /* Imágenes más pequeñas en móvil */
+        max-width: 150px; 
+    }
+    
+    /* Adaptación de la Modal para Móviles */
+    .modal-content {
+        margin: 20px auto;
+        padding: 15px;
+    }
+    .product-details-container {
+        flex-direction: column; 
+        gap: 15px;
+    }
+    .product-images {
+        width: 100%;
+        order: 1;
+    }
+    .product-info {
+        order: 2;
+        padding-left: 0;
+        text-align: center;
+    }
+    .price-tag {
+        font-size: 2.5rem;
+    }
+    .option-row, .quantity-controls {
+        justify-content: center;
+        width: 100%;
+    }
+    .option-label {
+        width: 60px;
+    }
+    
+    /* Mostrar el botón de descripción de personaje siempre en móviles */
+    .character-btn-desc {
+        opacity: 1; 
+        position: static;
+        width: auto;
+        margin-top: 5px;
+        pointer-events: auto;
     }
 
+    /* Personajes Relacionados en Móviles */
+    .related-list {
+        overflow-x: auto; /* Permite scroll horizontal si hay muchos personajes */
+        justify-content: flex-start;
+        padding-bottom: 10px;
+    }
+
+    .related-char-image {
+        width: 50px;
+        height: 50px;
+    }
 }
